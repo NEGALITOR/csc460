@@ -1,0 +1,16 @@
+#!/bin/bash
+ echo "one: " $1
+ shift
+ echo "two: " $1
+ shift
+ echo "three: " $1
+echo
+echo byebye
+echo
+
+
+
+
+
+
+

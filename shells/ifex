@@ -1,0 +1,22 @@
+#!/bin/bash
+#
+if (test $# -eq 0) then
+	echo no args
+	list=`who | cut -d" " -f1`
+else
+	list=$*
+fi
+
+echo
+echo "The list is;"
+echo  $list
+echo
+echo ------------- 
+
+
+for x in $list 
+do
+	echo $x
+	sleep 1
+done
+

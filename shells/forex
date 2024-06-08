@@ -1,0 +1,11 @@
+#!/bin/bash
+#forex
+#  This is an example of the FOR contruct in the bash.
+#
+for x in 1 2 3 4 5
+do
+ echo $x: $1
+ shift
+ sleep 1
+done
+

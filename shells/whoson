@@ -1,0 +1,18 @@
+#!/bin/bash
+
+class=`grep BIGBADBEARS24 /etc/passwd | cut -d":" -f1`
+echo Here are those from our class
+echo
+for x in $class
+do
+	echo $x
+done
+echo
+thoseon=`who | cut -d" " -f1`
+echo Those logged on are...
+for x in $thoseon
+do
+	echo $x
+	sleep 1
+done
+echo

@@ -1,0 +1,7 @@
+#!/bin/bash
+
+while (test $# -gt 0)
+do
+  grep $1 /etc/passwd | cut -d":" -f5 | cut -d"," -f1
+  shift
+done

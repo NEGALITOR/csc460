@@ -1,0 +1,15 @@
+#!/bin/bash
+echo Running commands for you.
+cmd='no'
+while (test "$cmd" != "byebye")
+do
+ echo -n "enter a command: "
+ read cmd
+ if (test "$cmd" != "byebye") then
+   echo I\'m going to run: $cmd
+   sleep 1
+   $cmd
+ fi
+done
+
+echo All Done.

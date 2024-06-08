@@ -1,0 +1,14 @@
+Here is the intended order for testing these files:
+shellvars
+shiftex0
+shiftex1
+shiftex2
+forex
+forex2
+readex
+iftest
+iftest2
+ifex
+whilex
+whoson
+showWho

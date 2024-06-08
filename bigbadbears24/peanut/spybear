@@ -1,0 +1,72 @@
+#!/bin/bash
+
+#echo "User ID           NAME         PHONE         TTY           WHAT"
+
+#echo $#
+
+if (test $# -eq 0) then
+	
+	echo "Usage: spybear <userid> <userid> ..."
+        echo "Usage: spybear all"
+
+	exit 1
+fi
+
+printf "%20s %30s %20s %10s %s\n" "user id" "name" "phone" "tty" "what"
+
+if (test "$1" = "all") then
+        class=`grep BIGBADBEARS24 /etc/passwd | cut -d":" -f1`
+	for x in $class
+	do
+        	#echo $x
+		userid=$x
+                name=`grep $x /etc/passwd | cut -d":" -f5 | cut -d"," -f1`
+                phone=`grep $x /etc/passwd | cut -d":" -f5 | cut -d"," -f3`
+                tty=`w -h | grep $x | tr -s " " | cut -d" " -f2`
+
+                what=`w -h | grep $x | cut -c 65-`
+		
+		if [ -z "$tty" ]
+                then
+                        tty="NOT ON"
+                fi
+		if [ -z "$what" ]
+		then
+			what="-"
+		fi
+		
+		#echo "$userid   $name      $phone     $tty       $what"
+		printf "%20s %30s %20s %10s %s\n" "$userid" "$name" "$phone" "$tty" "$what"
+		
+	done
+
+else
+
+
+	while (test $# -gt 0)
+	do
+		#echo "user: - $1 -"
+
+		userid=`grep -u $1 /etc/passwd | cut -d":" -f1 | cut -d"," -f1`
+		name=`grep -u $1 /etc/passwd | cut -d":" -f5 | cut -d"," -f1`
+                phone=`grep -u $1 /etc/passwd | cut -d":" -f5 | cut -d"," -f3`
+                tty=`w -h | grep -u $1 | tr -s " " | cut -d" " -f2`
+                what=`w -h | grep -u $1 | cut -c 65-`
+
+		if [ -z "$tty" ]
+                then
+                        tty="NOT ON"
+                fi
+                if [ -z "$what" ]
+                then
+                        what="-"
+                fi
+
+                #echo "$userid   $name      $phone     $tty       $what"
+                printf "%20s %30s %20s %10s %s\n" "$userid" "$name" "$phone" "$tty" "$what"
+
+		shift
+	
+	done
+
+fi

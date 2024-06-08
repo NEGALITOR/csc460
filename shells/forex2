@@ -1,0 +1,13 @@
+#!/bin/bash
+#forex2
+#  This is another example of the FOR contruct in the bash.
+#
+for x in $*
+do
+ echo About to run: $x
+ echo
+ $x
+ echo
+ sleep 1
+done
+

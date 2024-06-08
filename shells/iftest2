@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ "$1" == "all" ] 
+then
+	echo ALL
+else
+	echo NOT ALL
+fi

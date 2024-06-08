@@ -1,0 +1,36 @@
+#!/bin/bash
+#
+# An example of shell variables.
+#
+echo Shell Variable Example
+echo
+echo The name of this shell is $0.
+echo
+echo A total of $# arguments were passed in to this shell.
+echo
+echo The first three of these are:
+echo -e "\t$1"
+echo -e "\t$2"
+echo -e "\t$3"
+echo
+echo Here are all of the command line args:
+echo $*
+echo
+echo The process ID for this shell is $$.
+echo
+MyLocalVar=5
+echo MyLocalVar has a value of $MyLocalVar.
+echo
+echo Output from a command, like who, can be stored in a variable like:
+WhosOn=`who`
+echo
+echo We can see what was placed in the variable by who:
+echo $WhosOn
+echo
+echo All Done.
+echo
+
+
+
+
+

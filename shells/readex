@@ -1,0 +1,12 @@
+#!/bin/bash
+# Bob Allen
+
+echo -n "Prompt: "
+read cmd arg1 arg2 therestofthem
+echo Your command was: $cmd
+echo You typed $arg1
+echo You typed $arg2
+echo You typed $therestofthem
+echo
+echo all done
+
